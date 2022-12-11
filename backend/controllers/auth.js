@@ -32,8 +32,8 @@ export const register = async (req, res) => {
     });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -50,6 +50,6 @@ export const login = async (req, res) => {
     delete user.password;
     res.status(200).json({ token, user });
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 };
