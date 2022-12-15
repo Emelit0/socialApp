@@ -1,5 +1,29 @@
+import {
+  Box,
+  Typographie,
+  useTheme,
+  useMediaQuery,
+  Typography,
+} from "@mui/material";
+
 const LoginPage = () => {
-  return <div>HomePage</div>;
+  const theme = useTheme();
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+
+  return (
+    <Box>
+      <Box
+        width="100%"
+        backgroundColo={theme.palette.background.alt}
+        p="1rem 6%"
+        textAlign="center"
+      >
+        <Typography fontWeight="bold" fontSize="32px" color="primary">
+          Sociopedia
+        </Typography>
+      </Box>
+    </Box>
+  );
 };
 
 export default LoginPage;
