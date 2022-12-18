@@ -3,7 +3,7 @@ import Form from "./Form";
 
 const LoginPage = () => {
   const theme = useTheme();
-  const isNonMobileScreens = useMediaQuery("(min-width: 1920px)");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   return (
     <Box>
@@ -19,11 +19,12 @@ const LoginPage = () => {
       </Box>
 
       <Box
-        width={isNonMobileScreens ? "50px" : "93%"}
+        width={isNonMobileScreens ? "50%" : "93%"}
         p="2rem"
         m="2rem auto"
         borderRadius="1.5rem"
         backgoundColor={theme.palette.background.alt}
+        className="formBackground"
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Welcome to Socialpedia, the Soail media clone
