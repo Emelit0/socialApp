@@ -48,7 +48,7 @@ const initialValuesLogin = {
 
 const Form = () => {
   const [pageType, setPageType] = useState("login");
-  const { pallete } = useTheme();
+  const theme = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width: 600px)");
@@ -176,7 +176,7 @@ const Form = () => {
                 />
                 <Box
                   gridColumn="span 4"
-                  border={`1px solid ${pallete.neutral.medium}`}
+                  border={`1px solid ${theme.palette.neutral.medium}`}
                   borderRadius="5px"
                   p="1rem"
                 >
@@ -190,7 +190,7 @@ const Form = () => {
                     {({ getRootProps, getInputProps }) => (
                       <Box
                         {...getRootProps()}
-                        border={`2px dashed ${pallete.primary.main}`}
+                        border={`2px dashed ${theme.palette.primary.main}`}
                         p="1rem"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
@@ -240,9 +240,9 @@ const Form = () => {
               sx={{
                 m: "2rem 0",
                 p: "1rem",
-                backgroundColor: pallete.primary.main,
-                color: pallete.background.alt,
-                "&:hover": { color: pallete.primary.main },
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.background.alt,
+                "&:hover": { color: theme.palette.primary.main },
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
@@ -254,10 +254,10 @@ const Form = () => {
               }}
               sx={{
                 textDecoration: "underline",
-                color: pallete.primary.main,
+                color: theme.palette.primary.main,
                 "&:hover": {
                   cursor: "pointer",
-                  color: pallete.primary.mainm,
+                  color: theme.palette.primary.mainm,
                 },
               }}
             >

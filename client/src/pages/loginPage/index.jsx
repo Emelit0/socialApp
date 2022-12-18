@@ -3,7 +3,7 @@ import Form from "./Form";
 
 const LoginPage = () => {
   const theme = useTheme();
-  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1920px)");
 
   return (
     <Box>
@@ -17,6 +17,7 @@ const LoginPage = () => {
           Sociopedia
         </Typography>
       </Box>
+
       <Box
         width={isNonMobileScreens ? "50px" : "93%"}
         p="2rem"
