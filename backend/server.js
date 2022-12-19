@@ -55,7 +55,9 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+    app.listen(PORT, () =>
+      console.log(`DB connected and Server running on Server Port: ${PORT}`)
+    );
 
     // add test data
     // User.insertMany(users);

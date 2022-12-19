@@ -21,9 +21,9 @@ import {
   Close,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogout } from "../../state";
+import { setMode, setLogout } from "../../state/index.js";
 import { useNavigate } from "react-router-dom";
-import FlexBetween from "../../components/FlexBetween";
+import FlexBetween from "../../components/FlexBetween.jsx";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -38,7 +38,6 @@ const Navbar = () => {
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
-
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
@@ -50,7 +49,7 @@ const Navbar = () => {
           color="primary"
           onClick={() => navigate("/home")}
           sx={{
-            "&hover": {
+            "&:hover": {
               color: primaryLight,
               cursor: "pointer",
             },
@@ -64,7 +63,7 @@ const Navbar = () => {
             backgroundColor={neutralLight}
             borderRadius="9px"
             gap="3rem"
-            padding="0.1 1.5rem"
+            padding="0.1rem 1.5rem"
           >
             <InputBase placeholder="Search..." />
             <IconButton>
@@ -73,6 +72,7 @@ const Navbar = () => {
           </FlexBetween>
         )}
       </FlexBetween>
+
       {/* desktop */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
@@ -145,7 +145,10 @@ const Navbar = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <IconButton onClick={() => dispatch(setMode())}>
+            <IconButton
+              onClick={() => dispatch(setMode())}
+              sx={{ fontSize: "25px" }}
+            >
               {theme.palette.mode === "dark" ? (
                 <DarkMode sx={{ fontSize: "25px" }} />
               ) : (
