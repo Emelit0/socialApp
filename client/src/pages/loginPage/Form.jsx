@@ -85,13 +85,13 @@ const Form = () => {
       body: JSON.stringify(values),
     });
 
-    const loggedInUser = await loggedInResponse.json();
+    const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
-    if (loggedInUser) {
+    if (loggedIn) {
       dispatch(
         setLogin({
-          user: loggedInUser.user,
-          token: loggedInUser.token,
+          user: loggedIn.user,
+          token: loggedIn.token,
         })
       );
       navigate("/home");
