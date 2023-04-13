@@ -29,11 +29,9 @@ export const authSlice = createSlice({
         console.error("user friends non-existent :(");
       }
     },
-    //get all posts
     setPosts: (state, action) => {
       state.posts = action.payload.posts;
     },
-    //only get updates post
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
         if (post._id === action.payload.post._id) return action.payload.post;
@@ -44,6 +42,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPost, setPosts } =
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost } =
   authSlice.actions;
 export default authSlice.reducer;
