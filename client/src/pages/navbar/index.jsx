@@ -21,16 +21,16 @@ import {
   Close,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogout } from "../../state/index.js";
+import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
-import FlexBetween from "../../components/FlexBetween.jsx";
+import FlexBetween from "components/FlexBetween";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
-  const isNonMobileScreens = useMediaQuery("(min-width: 1000px");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
@@ -38,6 +38,7 @@ const Navbar = () => {
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
+
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
@@ -55,9 +56,8 @@ const Navbar = () => {
             },
           }}
         >
-          Socialapp
+          Sociopedia
         </Typography>
-        {/* mobile */}
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
@@ -73,7 +73,7 @@ const Navbar = () => {
         )}
       </FlexBetween>
 
-      {/* desktop */}
+      {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
           <IconButton onClick={() => dispatch(setMode())}>
@@ -119,7 +119,7 @@ const Navbar = () => {
         </IconButton>
       )}
 
-      {/* mobile navbar */}
+      {/* MOBILE NAV */}
       {!isNonMobileScreens && isMobileMenuToggled && (
         <Box
           position="fixed"
@@ -131,6 +131,7 @@ const Navbar = () => {
           minWidth="300px"
           backgroundColor={background}
         >
+          {/* CLOSE ICON */}
           <Box display="flex" justifyContent="flex-end" p="1rem">
             <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
@@ -138,12 +139,14 @@ const Navbar = () => {
               <Close />
             </IconButton>
           </Box>
+
+          {/* MENU ITEMS */}
           <FlexBetween
             display="flex"
             flexDirection="column"
-            gap="3rem"
             justifyContent="center"
             alignItems="center"
+            gap="3rem"
           >
             <IconButton
               onClick={() => dispatch(setMode())}
