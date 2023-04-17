@@ -5,12 +5,12 @@ import {
   ShareOutlined,
 } from "@mui/icons-material";
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
-import FlexBetween from "../../components/FlexBetween.jsx";
-import Friend from "../../components/Friend.jsx";
-import WidgetWrapper from "../../components/WidgetWrapper.jsx";
+import FlexBetween from "components/FlexBetween";
+import Friend from "components/Friend";
+import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPost } from "../../state/index.js";
+import { setPost } from "state";
 
 const PostWidget = ({
   postId,
@@ -81,12 +81,13 @@ const PostWidget = ({
           </FlexBetween>
 
           <FlexBetween gap="0.3rem">
-            <IconButton onClick={setIsComments(!isComments)}>
+            <IconButton onClick={() => setIsComments(!isComments)}>
               <ChatBubbleOutlineOutlined />
             </IconButton>
-            <Typography> {comments.length}</Typography>
+            <Typography>{comments.length}</Typography>
           </FlexBetween>
         </FlexBetween>
+
         <IconButton>
           <ShareOutlined />
         </IconButton>
