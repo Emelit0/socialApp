@@ -12,18 +12,18 @@ import {
   Divider,
   Typography,
   InputBase,
-  Button,
   useTheme,
+  Button,
   IconButton,
   useMediaQuery,
 } from "@mui/material";
-import FlexBetween from "../../components/FlexBetween.jsx";
+import FlexBetween from "components/FlexBetween";
 import Dropzone from "react-dropzone";
-import UserImage from "../../components/UserImage.jsx";
-import WidgetWrapper from "../../components/WidgetWrapper.jsx";
+import UserImage from "components/UserImage";
+import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPosts } from "../../state/index.js";
+import { setPosts } from "state";
 
 const MyPostWidget = ({ picturePath }) => {
   const dispatch = useDispatch();
@@ -51,7 +51,6 @@ const MyPostWidget = ({ picturePath }) => {
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
     });
-
     const posts = await response.json();
     dispatch(setPosts({ posts }));
     setImage(null);
@@ -76,8 +75,8 @@ const MyPostWidget = ({ picturePath }) => {
       </FlexBetween>
       {isImage && (
         <Box
-          borderRadius="5px"
           border={`1px solid ${medium}`}
+          borderRadius="5px"
           mt="1rem"
           p="1rem"
         >
@@ -97,7 +96,7 @@ const MyPostWidget = ({ picturePath }) => {
                 >
                   <input {...getInputProps()} />
                   {!image ? (
-                    <p>Add Image here</p>
+                    <p>Add Image Here</p>
                   ) : (
                     <FlexBetween>
                       <Typography>{image.name}</Typography>
@@ -118,7 +117,9 @@ const MyPostWidget = ({ picturePath }) => {
           </Dropzone>
         </Box>
       )}
+
       <Divider sx={{ margin: "1.25rem 0" }} />
+
       <FlexBetween>
         <FlexBetween gap="0.25rem" onClick={() => setIsImage(!isImage)}>
           <ImageOutlined sx={{ color: mediumMain }} />
@@ -129,16 +130,19 @@ const MyPostWidget = ({ picturePath }) => {
             Image
           </Typography>
         </FlexBetween>
+
         {isNonMobileScreens ? (
           <>
             <FlexBetween gap="0.25rem">
               <GifBoxOutlined sx={{ color: mediumMain }} />
               <Typography color={mediumMain}>Clip</Typography>
             </FlexBetween>
+
             <FlexBetween gap="0.25rem">
               <AttachFileOutlined sx={{ color: mediumMain }} />
               <Typography color={mediumMain}>Attachment</Typography>
             </FlexBetween>
+
             <FlexBetween gap="0.25rem">
               <MicOutlined sx={{ color: mediumMain }} />
               <Typography color={mediumMain}>Audio</Typography>
@@ -159,7 +163,7 @@ const MyPostWidget = ({ picturePath }) => {
             borderRadius: "3rem",
           }}
         >
-          Post
+          POST
         </Button>
       </FlexBetween>
     </WidgetWrapper>
