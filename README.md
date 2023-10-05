@@ -1,6 +1,14 @@
 # Social Media App with React, Redux, Material UI, Express, and MongoDB
 This project was just for learning purpose
-___
+
+                           |  
+:-------------------------:|:-------------------------:
+![](docs/image.png)        |  ![](docs/image1.png)
+:-------------------------:|:-------------------------:
+![](docs/image2.png)       |  ![](docs/image3.png)
+:-------------------------:|:-------------------------:
+                           |
+
 
 ## Description
 This project is a robust and dynamic social media application built using the power of React, Redux, Material UI,
