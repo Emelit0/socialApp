@@ -1,13 +1,10 @@
 # Social Media App with React, Redux, Material UI, Express, and MongoDB
 This project was just for learning purpose
 
-                           |  
 :-------------------------:|:-------------------------:
 ![](docs/image.png)        |  ![](docs/image1.png)
 :-------------------------:|:-------------------------:
 ![](docs/image2.png)       |  ![](docs/image3.png)
-:-------------------------:|:-------------------------:
-                           |
 
 
 ## Description
